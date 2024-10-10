@@ -1,25 +1,25 @@
-# Dockerfile
+# Use PHP 8.2 with FPM
 FROM php:8.2-fpm
 
-# Установка нужных расширений PHP
+# Install necessary PHP extensions
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql
 
-# Установка Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Копирование проекта
+# Copy the project files
 WORKDIR /var/www/symfony
 COPY . .
 
-# Установка зависимостей Symfony
+# Install Symfony dependencies
 RUN composer install
 
-# Настройка прав
+# Set permissions
 RUN chown -R www-data:www-data /var/www/symfony/var
 
-# Экспонируем порт для PHP
+# Expose the port for PHP
 EXPOSE 9000

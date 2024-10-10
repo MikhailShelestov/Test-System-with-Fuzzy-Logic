@@ -1,26 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Результаты теста{% endblock %}
+{% block title %}Test results{% endblock %}
 
 {% block body %}
     <div class="container">
-        <h1>Ваш результат: {{ score }}</h1>
-
-        <div class="result-section">
-{#            <p>Вы ответили правильно на {{ correctAnswers|length }} вопрос(ов) из {{ totalQuestions }}. Ваш счёт {{ score }}</p>#}
-        </div>
+        <h1>Yous quiz score: {{ score }}</h1>
 
         <div class="action-section">
-            <a href="{{ path('app_quiz') }}" class="btn btn-primary">Пройти тест ещё раз</a>
+            <a href="{{ path('app_quiz') }}" class="btn btn-primary">Retake Test</a>
         </div>
 
         <div class="table-section mt-5">
-            <h2>Результаты по вопросам</h2>
+            <h2>Question results</h2>
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">Вопросы с правильными ответами</th>
-                    <th scope="col">Вопросы с ошибками</th>
+                    <th scope="col">Question with correct answers</th>
+                    <th scope="col">Questions with incorrect answers</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,7 +26,7 @@
                             {% for question in correctQuestions %}
                                 <li>{{ question.statement }}</li>
                             {% else %}
-                                <li>Нет правильных ответов.</li>
+                                <li>There are no right answers</li>
                             {% endfor %}
                         </ul>
                     </td>
@@ -39,7 +35,7 @@
                             {% for question in incorrectQuestions %}
                                 <li>{{ question.statement }}</li>
                             {% else %}
-                                <li>Нет ошибок.</li>
+                                <li>There are no mistakes</li>
                             {% endfor %}
                         </ul>
                     </td>

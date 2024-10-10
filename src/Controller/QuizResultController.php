@@ -15,7 +15,6 @@ class QuizResultController extends AbstractController
     {
     }
 
-
     #[Route('/results', name: 'app_quiz_results')]
     public function __invoke(Request $request): Response
     {

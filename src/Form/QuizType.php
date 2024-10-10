@@ -38,7 +38,7 @@ class QuizType extends AbstractType
 
         $builder
             ->add('save', SubmitType::class, [
-                'label' => 'Получить результат',
+                'label' => 'Check the results',
                 'attr' => ['class' => 'btn btn-primary'],
             ])
             ->add('quizToken', HiddenType::class, [
