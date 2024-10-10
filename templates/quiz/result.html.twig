@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Результаты теста{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Ваш результат: {{ score }}</h1>
+
+        <div class="result-section">
+{#            <p>Вы ответили правильно на {{ correctAnswers|length }} вопрос(ов) из {{ totalQuestions }}. Ваш счёт {{ score }}</p>#}
+        </div>
+
+        <div class="action-section">
+            <a href="{{ path('app_quiz') }}" class="btn btn-primary">Пройти тест ещё раз</a>
+        </div>
+
+        <div class="table-section mt-5">
+            <h2>Результаты по вопросам</h2>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Вопросы с правильными ответами</th>
+                    <th scope="col">Вопросы с ошибками</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <ul>
+                            {% for question in correctQuestions %}
+                                <li>{{ question.statement }}</li>
+                            {% else %}
+                                <li>Нет правильных ответов.</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for question in incorrectQuestions %}
+                                <li>{{ question.statement }}</li>
+                            {% else %}
+                                <li>Нет ошибок.</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
