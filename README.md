@@ -36,7 +36,7 @@ This project is a simple testing system built using Symfony and PostgreSQL. It s
 4. Run the database migrations:
 
     ```bash
-    docker-compose exec php bin/console doctrine:migrations:migrate
+    docker compose exec php bin/console doctrine:migrations:migrate
     ```
 5. Access the application:
 
