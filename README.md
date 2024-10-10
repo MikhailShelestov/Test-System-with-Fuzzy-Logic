@@ -24,7 +24,7 @@ This project is a simple testing system built using Symfony and PostgreSQL. It s
 2. Start the project with Docker:
 
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
 
 3. Create database:
